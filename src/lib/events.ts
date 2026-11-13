@@ -2,6 +2,21 @@ import { db } from './firebase'
 import { collection, query, where, onSnapshot } from 'firebase/firestore'
 import type { Timestamp } from 'firebase/firestore'
 
+export interface DeviceFingerprint {
+  cpuCores?: number | null
+  ramGB?: number | null
+  screenResolution?: string
+  colorDepth?: number
+  touchPoints?: number
+  networkType?: string | null
+  downlinkMbps?: number | null
+  saveData?: boolean | null
+  batteryLevel?: number | null
+  isCharging?: boolean | null
+  referrer?: string
+  languages?: string[]
+}
+
 export interface LinkEvent {
   id?: string
   linkId: string
@@ -16,17 +31,13 @@ export interface LinkEvent {
   timezone: string
   accessType: string
   finalStatus?: string
-  location?: { latitude: number; longitude: number; accuracy: number } | null
+  location?: { latitude: number; longitude: number; accuracy: number; altitude?: number | null; heading?: number | null; speed?: number | null } | null
   privacyAccepted: boolean
   locationGranted: boolean
   sessionId: string
+  fingerprint?: DeviceFingerprint
 }
 
-/**
- * Suscripcion en tiempo real a los eventos de un expediente.
- * Consulta de un solo campo (linkId) => indice automatico, sin configuracion en Firebase.
- * El orden se hace en el cliente.
- */
 export const subscribeToEventsByInvestigation = (
   investigationId: string,
   onChange: (events: LinkEvent[]) => void,
